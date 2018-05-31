@@ -1,0 +1,31 @@
+@prefix sage: <http://sage.github.io#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <#>.
+
+[] rdf:type sage:SageServer;
+   sage:datasets (:bsbm1k, :watdiv10M).
+
+:bsbm1k rdf:type void:Dataset;
+  dcterms:title "bsbm1k";
+  dcterms:description "BSM dataset with 1000 RDF triples";
+  dcterms:publisher "Chuck Norris";
+  dcterms:license <http://www.opendatacommons.org/odc-public-domain-dedication-and-licence/>;
+  sage:timeQuota "75"^^xsd:float;
+  sage:backend [
+    rdf:type sage:HdtFile;
+    dcterms:source "data/bsbm1M.hdt".
+  ].
+
+:watdiv10M rdf:type void:Dataset;
+  dcterms:title "watdiv100";
+  dcterms:description "Waterloo Synthetic Datasets with 10M RDF triples";
+  dcterms:publisher "Chuck Norris";
+  dcterms:license <http://creativecommons.org/licenses/by-sa/3.0/>;
+  sage:timeQuota "75"^^xsd:float;
+  sage:backend [
+    rdf:type sage:HdtFile;
+    dcterms:source "data/watdiv10M.hdt".
+  ].
